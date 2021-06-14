@@ -1,0 +1,45 @@
+@import "../../../root.scss";
+.nav_menu {
+  margin: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 99;
+  .one,
+  .two,
+  .three {
+    stroke: $decathlon-blue;
+    stroke-width: 1px;
+    @include transition(all, 0.4s);
+  }
+  .one {
+    &.open {
+      stroke: $decathlon-white;
+      d: path("M3,3 L9,9");
+    }
+  }
+  .two {
+    &.open {
+      stroke: $decathlon-white;
+      d: path("M-7,6, L-1,7");
+    }
+  }
+  .three {
+    &.open {
+      stroke: $decathlon-white;
+      d: path("M3,9 L9,3");
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .nav_menu {
+    margin: 0;
+    .one,
+    .two,
+    .three {
+      &.open {
+        stroke: $decathlon-blue;
+      }
+    }
+  }
+}

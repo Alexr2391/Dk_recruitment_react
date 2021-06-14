@@ -1,0 +1,70 @@
+@import "../../root.scss";
+
+.container {
+  @include dimensions(100%, 100vh);
+  @include flex(center, center);
+  min-height: 800px;
+  position: relative;
+  &::before {
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    position: absolute;
+    content: "";
+    height: 800px;
+    background: linear-gradient(
+      90deg,
+      rgba(68, 36, 244, 0.2) 0%,
+      rgba(132, 94, 233, 0.2) 16%,
+      rgba(170, 128, 227, 0.2) 28%,
+      rgba(201, 155, 222, 0.2) 40%,
+      rgba(225, 177, 218, 0.2) 53%,
+      rgba(242, 192, 215, 0.2) 67%,
+      rgba(252, 201, 214, 0.2) 82%,
+      rgba(255, 204, 213, 0.2) 100%
+    );
+    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0 70%);
+  }
+  .wrapper {
+    height: 100%;
+    width: 100%;
+    max-width: 1600px;
+    position: relative;
+    @include flex(center, center);
+    .svg_container {
+      height: 100%;
+      position: absolute;
+      background-position: top;
+      top: 0;
+      right: 0;
+      width: 60%;
+      svg {
+        max-width: 100%;
+        height: auto;
+        min-width: 350px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    height: auto;
+    .wrapper {
+      @include flex(center, center, column);
+      .svg_container {
+        min-height: 100%;
+        width: 100%;
+        background-size: cover;
+        position: relative;
+        flex: 0 0 100%;
+        right: initial;
+        top: initial;
+        order: 1;
+        svg {
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import "../../root.scss";
+
+.fixed {
+  @include dimensions(100%, 100%);
+  max-width: 1140px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  @include transform(translateX(-50%));
+  @include flex(center, center);
+  .gradient_elem {
+    @include dimensions(11%, 100%);
+    min-width: 85px;
+    background: rgb(0, 223, 179);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 223, 179, 0.7203256302521008) 0%,
+      rgba(93, 137, 210, 0.9220063025210083) 58%,
+      rgba(35, 80, 150, 0.8127626050420168) 80%,
+      rgba(0, 19, 158, 0.6811099439775911) 100%
+    );
+  }
+}

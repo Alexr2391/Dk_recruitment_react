@@ -1,0 +1,76 @@
+@import "../../../root.scss";
+
+.container {
+  width: 85%;
+  .navlist_wrapper {
+    width: 100%;
+    .link_list {
+      list-style: none;
+      .list_item {
+        margin: 1em 0;
+        cursor: pointer;
+        &:hover .drop_container:after {
+          width: 100%;
+        }
+        .active_container {
+          margin: 0.5rem 0;
+          @include flex(flex-start, center, column);
+
+          .active_links {
+            margin: 0.1rem;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 0.9rem;
+            padding-left: 3rem;
+            color: rgba(255, 255, 255, 0.712);
+            @include transition(color, 0.1s, ease-in-out);
+            &:hover {
+              color: #fff;
+            }
+          }
+        }
+
+        .drop_container {
+          position: relative;
+          z-index: 2;
+          @include flex(center, flex-start);
+          &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            @include transform(translateY(-50%));
+            @include transition(width, 0.3s, ease-in-out);
+            width: 0%;
+            height: 2px;
+            background-color: $decathlon-white;
+          }
+          &:hover:after,
+          &:hover:focus {
+            width: 100%;
+          }
+
+          .drop_inner {
+            background-color: $decathlon-darkblue;
+            position: relative;
+            margin-left: 2.5rem;
+            padding: 0.1rem;
+            z-index: 3;
+            @include flex(center, flex-start);
+            .dropdown_header {
+              margin-right: 0.4rem;
+              padding: 0.5rem;
+              font-size: 2rem;
+              font-weight: bolder;
+              -webkit-text-stroke: $text-stroke $decathlon-white;
+              color: transparent;
+              &:hover {
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

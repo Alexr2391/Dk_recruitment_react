@@ -1,0 +1,90 @@
+@import "../../root.scss";
+
+.container {
+  @include dimensions(false, 100%);
+  @include flex(center, flex-start);
+  flex: 0 0 100%;
+  margin-left: 10%;
+  position: relative;
+  z-index: 2;
+  .wrapper {
+    margin-top: -14rem;
+    margin-left: 8rem;
+    width: 100%;
+    @include flex(flex-start, center, column);
+    max-width: 550px;
+    .title {
+      font-size: 5rem;
+      font-weight: bolder;
+      color: $decathlon-blackText;
+    }
+    .stroked {
+      font-size: 4.5rem;
+      font-weight: bolder;
+      -webkit-text-stroke: $text-stroke $decathlon-blue;
+      color: transparent;
+      width: 70%;
+    }
+    .paragraph {
+      margin-top: 1rem;
+      font-size: 1.4rem;
+      font-weight: bolder;
+      color: $decathlon-blackText;
+      text-transform: uppercase;
+      letter-spacing: -0.09rem;
+    }
+    .button {
+      cursor: pointer;
+      outline-width: 0;
+      margin-top: 1.5rem;
+      background-color: $decathlon-buttoncyan;
+      font-weight: bold;
+      width: 100px;
+      color: $decathlon-white;
+      border-radius: 0.6rem;
+      border: none;
+      padding: 0.4rem 0;
+      @include transition(background-color, 0.3s, ease-in-out);
+      &:hover {
+        background-color: $decathlon-buttoncyanhover;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    margin-left: 0;
+  }
+  .wrapper {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    @include flex(center, center);
+    width: 100%;
+    order: 2;
+    margin-left: 0%;
+    .wrapper {
+      @include flex(center, center, column);
+      max-width: 100%;
+      margin-top: 0;
+      margin-left: 0;
+      .title,
+      .stroked,
+      .paragraph {
+        width: 80%;
+      }
+      .title,
+      .stroked {
+        font-size: 3rem;
+      }
+      .button {
+        align-self: flex-start;
+        margin-left: 10%;
+      }
+    }
+  }
+}

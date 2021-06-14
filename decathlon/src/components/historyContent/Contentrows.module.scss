@@ -1,0 +1,6 @@
+@import "../../root.scss";
+
+.flex_container_row {
+  @include dimensions(100%, 100%);
+  @include flex(center, center, column);
+}

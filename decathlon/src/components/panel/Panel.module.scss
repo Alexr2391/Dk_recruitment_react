@@ -1,0 +1,23 @@
+@import "../../root.scss";
+
+.container {
+  @include dimensions(40%, 100vh);
+  @include absPositions(-40%, 0);
+  position: fixed;
+  background-color: $decathlon-darkblue;
+  @include transition(left, 0.4s, ease-in-out, 0.7s);
+  @include flex(center, center);
+
+  z-index: 3;
+  &.open {
+    @include absPositions(0, 0);
+    @include transition(left, 0.3s, cubic-bezier(0.64, 0.7, 0.67, 0.77));
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    @include dimensions(100%);
+    @include absPositions(-100%);
+  }
+}

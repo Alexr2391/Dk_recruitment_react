@@ -1,0 +1,61 @@
+$decathlon-blue: #0082c3;
+$decathlon-darkblue: #004876;
+$decathlon-cyan: #00d6ff;
+$decathlon-white: #fff;
+$decathlon-blackText: #323223;
+$decathlon-buttoncyan: #00a0c6;
+$decathlon-buttoncyanhover: #066981;
+$text-stroke: 1px;
+
+@mixin flex($align: false, $justify: false, $flex-direction: false) {
+  display: flex;
+  @if $align {
+    align-items: $align;
+  }
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $flex-direction {
+    flex-direction: $flex-direction;
+  }
+}
+
+@mixin dimensions($width: false, $height: false) {
+  @if $width {
+    width: $width;
+  }
+  @if height {
+    height: $height;
+  }
+}
+
+@mixin absPositions($left: false, $top: false, $right: false, $bottom: false) {
+  @if ($left) {
+    left: $left;
+  }
+  @if ($top) {
+    top: $top;
+  }
+  @if ($right) {
+    right: $right;
+  }
+  @if ($bottom) {
+    bottom: $bottom;
+  }
+}
+
+@mixin transition($item: all, $duration: 0.3, $mode: ease-in-out, $delay: 0s) {
+  will-change: $item;
+  -webkit-transition: $item $duration $mode $delay;
+  -moz-transition: $item $duration $mode $delay;
+  -o-transition: $item $duration $mode $delay;
+  transition: $item $duration $mode $delay;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  -ms-transform: $value;
+  -o-transform: $value;
+  transform: $value;
+}

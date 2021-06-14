@@ -1,0 +1,6 @@
+@import "../../../root.scss";
+
+.container {
+  @include flex(center, center, false);
+  @include dimensions(100%, inherit);
+}
